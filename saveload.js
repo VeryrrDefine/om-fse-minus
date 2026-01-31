@@ -1,98 +1,135 @@
 function reset() {
-  game={
-  base: 100,
-  ord: ENify(0),
-  over: 0,
-  canInf: false,
-  OP: ENify(0),
-  infUnlock: 0,
-  subTab: 1,
-  bsubTab: 1,
-  csubTab: 1,
-  psubTab: 1,
-  succAuto: ENify(0),
-  limAuto: ENify(0),
-  maxAuto: 0,
-  autoLoop: {succ: 0, lim: 0},
-  factorShifts: 0,
-  factors: [],
-  omegaFactors: [],
-  omegaFactorCount: 0,
-  lastTick: Date.now(),
-  version: 1,
-  boostUnlock: 0,
-  boosters: 0,
-  upgrades: [],
-  pupgrades: [],
-  fupgrades: [],
-  products: EN(0),
-  factorBoosts: 0,
-  dynamic: 1,
-  dynamicUnlock: 0,
-  maxAuto: 0,
-  infAuto: 0,
-  pAutoLoop: {factor: 0},
-  bAutoLoop: {max: 0, inf: 0},
-  autoOn: {max: 1, inf: 1},
-  challenge: 0,
-  challengeCompletion: [0,0,0,0,0,0,0],
-  incrementy: EN(0),
-  manifolds: 0,
-  iups: [0,0,0,0,0,0,0,0,0],
-  buchholz: 1,
-  theme: 1,
-  msint: 50,
-  maxOrdLength: {less: 8,more: 10},
-  colors: 1,
-  music: 0,
-  chal8: 0,
-  chal8Comp: 0,
-  decrementy: 0,
-  collapsed: 0,
-  manualClicksLeft: 1000,
-  collapseUnlock: 0,
-  cardinals: EN(0),
-  collapseTime: 0,
-  reachedBHO: 0,
-  assCard: [{points: EN(0), power: EN(0), mult: EN(1)},{points: EN(0), power: EN(0), mult: EN(1)},{points: EN(0), power: EN(0), mult: EN(1)}],
-  leastBoost: 1e100,
-  alephOmega: EN(0),
-  aups: [],
-  assBefore: 0,
-  diagonalizeUnlock: 0,
-  DP: EN(0),
-  diagonalTime: 0,
-  diagonalUp: [EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0),EN(0)],
-  prodChal: 0,
-  prodChalComp: [],
-  prodChal8: 0,
-  prodChal8Comp: 0,
-  factorizeUnlock: 0,
-  factorials: EN(0),
-  omegaFactorize: [0,0,0,0,0],
-  timeInFactorize: 0,
-  fsubTab: 1,
-  incrementer: [
-    [{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)}],
-    [{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)}],
-    [{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)}],
-    [{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)},{prod: EN(1),bought: EN(0)}]
+  game = {
+    base: 100,
+    ord: ENify(0),
+    over: 0,
+    canInf: false,
+    OP: ENify(0),
+    infUnlock: 0,
+    subTab: 1,
+    bsubTab: 1,
+    csubTab: 1,
+    psubTab: 1,
+    succAuto: ENify(0),
+    limAuto: ENify(0),
+    maxAuto: 0,
+    autoLoop: { succ: 0, lim: 0 },
+    factorShifts: 0,
+    factors: [],
+    omegaFactors: [],
+    omegaFactorCount: 0,
+    lastTick: Date.now(),
+    version: 1,
+    boostUnlock: 0,
+    boosters: 0,
+    upgrades: [],
+    pupgrades: [],
+    fupgrades: [],
+    products: new EN(0),
+    factorBoosts: 0,
+    dynamic: 1,
+    dynamicUnlock: 0,
+    maxAuto: 0,
+    infAuto: 0,
+    pAutoLoop: { factor: 0 },
+    bAutoLoop: { max: 0, inf: 0 },
+    autoOn: { max: 1, inf: 1 },
+    challenge: 0,
+    challengeCompletion: [0, 0, 0, 0, 0, 0, 0],
+    incrementy: new EN(0),
+    manifolds: 0,
+    iups: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    buchholz: 1,
+    theme: 1,
+    msint: 50,
+    maxOrdLength: { less: 8, more: 10 },
+    colors: 1,
+    music: 0,
+    chal8: 0,
+    chal8Comp: 0,
+    decrementy: 0,
+    collapsed: 0,
+    manualClicksLeft: 1000,
+    collapseUnlock: 0,
+    cardinals: new EN(0),
+    collapseTime: 0,
+    reachedBHO: 0,
+    assCard: [
+      { points: new EN(0), power: new EN(0), mult: new EN(1) },
+      { points: new EN(0), power: new EN(0), mult: new EN(1) },
+      { points: new EN(0), power: new EN(0), mult: new EN(1) },
     ],
-  mostFactorizedOnce: EN(0),
-  inNuke: 0
-  }
-  document.getElementById("infinityTabButton").style.display="none"
-  render()
-  updateFactors()
-  updateOmegaFactors()
+    leastBoost: 1e100,
+    alephOmega: new EN(0),
+    aups: [],
+    assBefore: 0,
+    diagonalizeUnlock: 0,
+    DP: new EN(0),
+    diagonalTime: 0,
+    diagonalUp: [
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+      new EN(0),
+    ],
+    prodChal: 0,
+    prodChalComp: [],
+    prodChal8: 0,
+    prodChal8Comp: 0,
+    factorizeUnlock: 0,
+    factorials: new EN(0),
+    omegaFactorize: [0, 0, 0, 0, 0],
+    timeInFactorize: 0,
+    fsubTab: 1,
+    incrementer: [
+      [
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+      ],
+      [
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+      ],
+      [
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+      ],
+      [
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+        { prod: new EN(1), bought: new EN(0) },
+      ],
+    ],
+    mostFactorizedOnce: new EN(0),
+    inNuke: 0,
+  };
+  document.getElementById("infinityTabButton").style.display = "none";
+  render();
+  updateFactors();
+  updateOmegaFactors();
 }
 
 function loadGame(loadgame) {
   reset();
   for (const i in loadgame) {
-    if (typeof loadgame[i]=="object"&&loadgame[i]!=null) {
-      if (typeof loadgame[i].array!="undefined"&&typeof loadgame[i].sign!="undefined") {
-        game[i] = ENify(loadgame[i])
+    if (typeof loadgame[i] == "object" && loadgame[i] != null) {
+      if (
+        typeof loadgame[i].array != "undefined" &&
+        typeof loadgame[i].sign != "undefined"
+      ) {
+        game[i] = ENify(loadgame[i]);
       } else {
         game[i] = loadgame[i];
       }
@@ -101,15 +138,15 @@ function loadGame(loadgame) {
     }
   }
   for (let i in game.diagonalUp) {
-    game.diagonalUp[i]=ENify(game.diagonalUp[i])
+    game.diagonalUp[i] = ENify(game.diagonalUp[i]);
   }
   for (const a in game.incrementer) {
     for (const b in game.incrementer[a]) {
-      game.incrementer[a][b].prod=ENify(game.incrementer[a][b].prod)
-      game.incrementer[a][b].bought=ENify(game.incrementer[a][b].bought)
+      game.incrementer[a][b].prod = ENify(game.incrementer[a][b].prod);
+      game.incrementer[a][b].bought = ENify(game.incrementer[a][b].bought);
     }
   }
-  game.products=ENify(game.products)
+  game.products = ENify(game.products);
   const diff = Date.now() - game.lastTick;
   // Console.log(diff);
   handleOldVersions(loadgame);
@@ -132,7 +169,7 @@ function load() {
 }
 
 function handleVeryOldSaves(loadgame) {
-	if (typeof loadgame.version === "undefined") {
+  if (typeof loadgame.version === "undefined") {
     game.version = 0.12;
   } else {
     game.version = loadgame.version;
@@ -153,10 +190,12 @@ function handleVeryOldSaves(loadgame) {
   }
   if (game.version === 0.201) {
     game.version = 0.202;
-    if (game.boostUnlock === 1 && game.boosters + (game.upgrades.includes(1) ? 1 : 0) >= 2) {
+    if (
+      game.boostUnlock === 1 &&
+      game.boosters + (game.upgrades.includes(1) ? 1 : 0) >= 2
+    ) {
       game.boosters -= 1;
     } else if (game.boostUnlock === 1) game.factorBoosts += 1;
-    
   }
 }
 
@@ -172,7 +211,7 @@ function handlePost0202Saves() {
           game.boosters = 1;
         }
       } else {
-        game.boosters = game.factorBoosts * (game.factorBoosts + 1) / 2;
+        game.boosters = (game.factorBoosts * (game.factorBoosts + 1)) / 2;
         if (game.upgrades.includes(1)) game.boosters--;
         if (game.upgrades.includes(2)) game.boosters--;
         if (game.upgrades.includes(3)) game.boosters--;
@@ -183,34 +222,34 @@ function handlePost0202Saves() {
     }
   }
   if (game.version === 0.21) {
-     game.version = 0.211;
-     if (game.boostUnlock === 1) {
-     game.boosters = game.factorBoosts * (game.factorBoosts + 1) / 2;
-     if (game.upgrades.includes(1)) game.boosters--;
-     if (game.upgrades.includes(2)) game.boosters--;
-     if (game.upgrades.includes(3)) game.boosters--;
-     if (game.upgrades.includes(5)) game.boosters -= 5;
-     if (game.upgrades.includes(6)) game.boosters -= 4;
-     if (game.upgrades.includes(7)) game.boosters -= 8;
-	}
+    game.version = 0.211;
+    if (game.boostUnlock === 1) {
+      game.boosters = (game.factorBoosts * (game.factorBoosts + 1)) / 2;
+      if (game.upgrades.includes(1)) game.boosters--;
+      if (game.upgrades.includes(2)) game.boosters--;
+      if (game.upgrades.includes(3)) game.boosters--;
+      if (game.upgrades.includes(5)) game.boosters -= 5;
+      if (game.upgrades.includes(6)) game.boosters -= 4;
+      if (game.upgrades.includes(7)) game.boosters -= 8;
+    }
   }
 }
 
 function handlePost0211Saves() {
-	if (game.version === 0.211) {
-     game.version = 0.22;
-     if (game.boostUnlock === 1) {
-     game.boosters = game.factorBoosts * (game.factorBoosts + 1) / 2;
-     if (game.upgrades.includes(1)) game.boosters--;
-     if (game.upgrades.includes(2)) game.boosters--;
-     if (game.upgrades.includes(3)) game.boosters--;
-     if (game.upgrades.includes(5)) game.boosters -= 5;
-     if (game.upgrades.includes(6)) game.boosters -= 4;
-     if (game.upgrades.includes(7)) game.boosters -= 8;
-     if (game.upgrades.includes(11)) game.boosters -= 16;
-     }
+  if (game.version === 0.211) {
+    game.version = 0.22;
+    if (game.boostUnlock === 1) {
+      game.boosters = (game.factorBoosts * (game.factorBoosts + 1)) / 2;
+      if (game.upgrades.includes(1)) game.boosters--;
+      if (game.upgrades.includes(2)) game.boosters--;
+      if (game.upgrades.includes(3)) game.boosters--;
+      if (game.upgrades.includes(5)) game.boosters -= 5;
+      if (game.upgrades.includes(6)) game.boosters -= 4;
+      if (game.upgrades.includes(7)) game.boosters -= 8;
+      if (game.upgrades.includes(11)) game.boosters -= 16;
+    }
   }
-	if (game.version === 0.22) {
+  if (game.version === 0.22) {
     game.version = 0.24;
     game.iups.push(0);
     game.iups.push(0);
@@ -246,18 +285,19 @@ function handleOldVersions(loadgame) {
 function handlePreV1() {
   if (game.version <= 0.31) {
     if (game.OP.gte("eee8")) {
-      reset()
-      alert("The game updated and your save had to be wiped. Here's 10 products in compensation")
-      game.infUnlock=1
-      game.diagonalizeUnlock=1
-      game.boostUnlock=1
-      factorCollapse()
-      game.products=EN(10)
+      reset();
+      alert(
+        "The game updated and your save had to be wiped. Here's 10 products in compensation",
+      );
+      game.infUnlock = 1;
+      game.diagonalizeUnlock = 1;
+      game.boostUnlock = 1;
+      factorCollapse();
+      game.products = EN(10);
     }
-    game.version = 1
+    game.version = 1;
   }
 }
-
 
 function save() {
   if (AF === 0) localStorage.setItem("om-fse-save", JSON.stringify(game));
@@ -269,7 +309,11 @@ function exporty() {
 
 function importy() {
   let loadgame = "";
-  loadgame = JSON.parse(atob(prompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE")));
+  loadgame = JSON.parse(
+    atob(
+      prompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE"),
+    ),
+  );
   if (loadgame !== "") {
     loadGame(loadgame);
   }
