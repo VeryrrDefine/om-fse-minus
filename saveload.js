@@ -134,7 +134,9 @@ function loadGame(loadgame) {
         game[i] = loadgame[i];
       }
     } else {
-      game[i] = loadgame[i];
+      if (typeof loadgame[i] == "string" && loadgame[i].startsWith("PN")) {
+        game[i] = new EN(loadgame[i]);
+      } else game[i] = loadgame[i];
     }
   }
   for (let i in game.diagonalUp) {

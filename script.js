@@ -3233,16 +3233,7 @@ document.getElementById("music").src = musicLink[game.music - 1];
 document.getElementById("music").muted = false;
 
 function ENify(x) {
-  if (typeof x == "number") {
-    return new EN(x);
-  } else {
-    let newEN = new EN(0);
-    newEN.array = x.array;
-    newEN.sign = x.sign;
-    newEN.layer = x.layer;
-    newEN.small = x.small;
-    return newEN;
-  }
+  return new EN(x);
 }
 
 function timeSince(x) {
